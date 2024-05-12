@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "381a99f7-dd6d-4356-b704-e4d78462144c",
+		"name": "ExamenTP-CQRS-2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15255541"
+	},
+	"item": [
+		{
+			"name": "Add Hotel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idH\":\"1h\",\r\n    \"nom\": \"hilton\",\r\n    \"nbEtoiles\":\"5\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:9090/command/hotel",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"command",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chambre",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCh\":\"1h12\",\r\n    \"type\":\"simple\",\r\n    \"etage\":\"1\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:9090/command/hotel/1h/chambre",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"command",
+						"hotel",
+						"1h",
+						"chambre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Chambre",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/command/hotel/1h/1h12",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"command",
+						"hotel",
+						"1h",
+						"1h12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Reservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idRes\":\"2r\",\r\n    \"dateDebut\":\"2023-05-11\",\r\n    \"dateFin\":\"2023-05-12\",\r\n    \"idCh\":\"1h12\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:9091/command/reservation",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"command",
+						"reservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Reservation",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:9091/command/reservation/2r",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"command",
+						"reservation",
+						"2r"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
